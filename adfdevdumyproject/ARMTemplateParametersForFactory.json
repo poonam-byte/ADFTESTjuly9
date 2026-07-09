@@ -62,6 +62,12 @@
 		"SqlServer1_password": {
 			"value": ""
 		},
+		"LS_ADLS_BLOB_EVENT_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_BLOBJSON_EVENT_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
 		},
@@ -145,6 +151,12 @@
 		},
 		"SqlServer1_properties_typeProperties_userName": {
 			"value": "khatipoonam"
+		},
+		"LS_ADLS_BLOB_EVENT_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/6583ba25-d8c0-4874-945b-9da668ad9d24/resourceGroups/rg_dev_dumyproject/providers/Microsoft.Storage/storageAccounts/adlsdevdumyproject001"
 		}
 	}
 }
