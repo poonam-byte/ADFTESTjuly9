@@ -1,0 +1,156 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevdumyproject"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
+		"LD_STOREDPROCEDURE3_password": {
+			"value": ""
+		},
+		"LS_CSVFILE_accountKey": {
+			"value": ""
+		},
+		"LS_CSVPOUTPUT_connectionString": {
+			"value": ""
+		},
+		"LS_DIFF_FORMAT_INPUT_accountKey": {
+			"value": ""
+		},
+		"LS_GETMETADATA_accountKey": {
+			"value": ""
+		},
+		"LS_GETMETADATA_ADLS_accountKey": {
+			"value": ""
+		},
+		"LS_GETMETADATA_ADLS_INPUT_accountKey": {
+			"value": ""
+		},
+		"LS_LLOKUP_ADLS_BLOB_accountKey": {
+			"value": ""
+		},
+		"LS_SQL_MIGRATION_password": {
+			"value": ""
+		},
+		"LS_STOREDPROCEDURE2_password": {
+			"value": ""
+		},
+		"LS_STOREDPROCEDURE_SQL_password": {
+			"value": ""
+		},
+		"LS_SqlServerTable_password": {
+			"value": ""
+		},
+		"LS_TEXTFILE_accountKey": {
+			"value": ""
+		},
+		"LS_TEXTOUTPUT_BLOB_connectionString": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LD_STOREDPROCEDURE3_properties_typeProperties_server": {
+			"value": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LD_STOREDPROCEDURE3_properties_typeProperties_database": {
+			"value": "Visionboardmigration"
+		},
+		"LD_STOREDPROCEDURE3_properties_typeProperties_userName": {
+			"value": "khatipoonam"
+		},
+		"LS_CSVFILE_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_DIFF_FORMAT_INPUT_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_GETMETADATA_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_GETMETADATA_ADLS_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_GETMETADATA_ADLS_INPUT_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_LLOKUP_ADLS_BLOB_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_SQL_MIGRATION_properties_typeProperties_server": {
+			"value": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_SQL_MIGRATION_properties_typeProperties_database": {
+			"value": "Visionboardmigration"
+		},
+		"LS_SQL_MIGRATION_properties_typeProperties_userName": {
+			"value": "khatipoonam"
+		},
+		"LS_STOREDPROCEDURE2_properties_typeProperties_server": {
+			"value": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_STOREDPROCEDURE2_properties_typeProperties_database": {
+			"value": "Visionboardmigration"
+		},
+		"LS_STOREDPROCEDURE2_properties_typeProperties_userName": {
+			"value": "khatipoonam"
+		},
+		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_server": {
+			"value": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_database": {
+			"value": "Visionboardmigration"
+		},
+		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName": {
+			"value": "khatipoonam"
+		},
+		"LS_SqlServerTable_properties_typeProperties_server": {
+			"value": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_SqlServerTable_properties_typeProperties_database": {
+			"value": "Visionboardmigration"
+		},
+		"LS_SqlServerTable_properties_typeProperties_userName": {
+			"value": "khatipoonam"
+		},
+		"LS_TEXTFILE_properties_typeProperties_url": {
+			"value": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "Visionboardmigration"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "khatipoonam"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

@@ -1,0 +1,391 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfdevdumyproject"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
+		"AzureDataLakeStorage3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
+		},
+		"LD_STOREDPROCEDURE3_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LD_STOREDPROCEDURE3'"
+		},
+		"LS_CSVFILE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_CSVFILE'"
+		},
+		"LS_CSVPOUTPUT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_CSVPOUTPUT'"
+		},
+		"LS_DIFF_FORMAT_INPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_DIFF_FORMAT_INPUT'"
+		},
+		"LS_GETMETADATA_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_GETMETADATA'"
+		},
+		"LS_GETMETADATA_ADLS_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_GETMETADATA_ADLS'"
+		},
+		"LS_GETMETADATA_ADLS_INPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_GETMETADATA_ADLS_INPUT'"
+		},
+		"LS_LLOKUP_ADLS_BLOB_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_LLOKUP_ADLS_BLOB'"
+		},
+		"LS_SQL_MIGRATION_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_MIGRATION'"
+		},
+		"LS_STOREDPROCEDURE2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_STOREDPROCEDURE2'"
+		},
+		"LS_STOREDPROCEDURE_SQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_STOREDPROCEDURE_SQL'"
+		},
+		"LS_SqlServerTable_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SqlServerTable'"
+		},
+		"LS_TEXTFILE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TEXTFILE'"
+		},
+		"LS_TEXTOUTPUT_BLOB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_TEXTOUTPUT_BLOB'"
+		},
+		"SqlServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'SqlServer1'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LD_STOREDPROCEDURE3_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LD_STOREDPROCEDURE3_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Visionboardmigration"
+		},
+		"LD_STOREDPROCEDURE3_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khatipoonam"
+		},
+		"LS_CSVFILE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_DIFF_FORMAT_INPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_GETMETADATA_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_GETMETADATA_ADLS_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_GETMETADATA_ADLS_INPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_LLOKUP_ADLS_BLOB_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_SQL_MIGRATION_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_SQL_MIGRATION_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Visionboardmigration"
+		},
+		"LS_SQL_MIGRATION_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khatipoonam"
+		},
+		"LS_STOREDPROCEDURE2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_STOREDPROCEDURE2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Visionboardmigration"
+		},
+		"LS_STOREDPROCEDURE2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khatipoonam"
+		},
+		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Visionboardmigration"
+		},
+		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khatipoonam"
+		},
+		"LS_SqlServerTable_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"LS_SqlServerTable_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Visionboardmigration"
+		},
+		"LS_SqlServerTable_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khatipoonam"
+		},
+		"LS_TEXTFILE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Visionboardmigration"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "khatipoonam"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adfdevdumyproject_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
+					"AzureDataLakeStorage3_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
+					},
+					"LS_CSVFILE_accountKey": {
+						"value": "[parameters('LS_CSVFILE_accountKey')]"
+					},
+					"LS_CSVPOUTPUT_connectionString": {
+						"value": "[parameters('LS_CSVPOUTPUT_connectionString')]"
+					},
+					"LS_DIFF_FORMAT_INPUT_accountKey": {
+						"value": "[parameters('LS_DIFF_FORMAT_INPUT_accountKey')]"
+					},
+					"LS_GETMETADATA_accountKey": {
+						"value": "[parameters('LS_GETMETADATA_accountKey')]"
+					},
+					"LS_GETMETADATA_ADLS_accountKey": {
+						"value": "[parameters('LS_GETMETADATA_ADLS_accountKey')]"
+					},
+					"LS_GETMETADATA_ADLS_INPUT_accountKey": {
+						"value": "[parameters('LS_GETMETADATA_ADLS_INPUT_accountKey')]"
+					},
+					"LS_LLOKUP_ADLS_BLOB_accountKey": {
+						"value": "[parameters('LS_LLOKUP_ADLS_BLOB_accountKey')]"
+					},
+					"LS_TEXTFILE_accountKey": {
+						"value": "[parameters('LS_TEXTFILE_accountKey')]"
+					},
+					"LS_TEXTOUTPUT_BLOB_connectionString": {
+						"value": "[parameters('LS_TEXTOUTPUT_BLOB_connectionString')]"
+					},
+					"LD_STOREDPROCEDURE3_password": {
+						"value": "[parameters('LD_STOREDPROCEDURE3_password')]"
+					},
+					"LS_SQL_MIGRATION_password": {
+						"value": "[parameters('LS_SQL_MIGRATION_password')]"
+					},
+					"LS_STOREDPROCEDURE2_password": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_password')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_password": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_password')]"
+					},
+					"LS_SqlServerTable_password": {
+						"value": "[parameters('LS_SqlServerTable_password')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage3_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]"
+					},
+					"LS_CSVFILE_properties_typeProperties_url": {
+						"value": "[parameters('LS_CSVFILE_properties_typeProperties_url')]"
+					},
+					"LS_DIFF_FORMAT_INPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_DIFF_FORMAT_INPUT_properties_typeProperties_url')]"
+					},
+					"LS_GETMETADATA_properties_typeProperties_url": {
+						"value": "[parameters('LS_GETMETADATA_properties_typeProperties_url')]"
+					},
+					"LS_GETMETADATA_ADLS_properties_typeProperties_url": {
+						"value": "[parameters('LS_GETMETADATA_ADLS_properties_typeProperties_url')]"
+					},
+					"LS_GETMETADATA_ADLS_INPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_GETMETADATA_ADLS_INPUT_properties_typeProperties_url')]"
+					},
+					"LS_LLOKUP_ADLS_BLOB_properties_typeProperties_url": {
+						"value": "[parameters('LS_LLOKUP_ADLS_BLOB_properties_typeProperties_url')]"
+					},
+					"LS_TEXTFILE_properties_typeProperties_url": {
+						"value": "[parameters('LS_TEXTFILE_properties_typeProperties_url')]"
+					},
+					"LD_STOREDPROCEDURE3_properties_typeProperties_server": {
+						"value": "[parameters('LD_STOREDPROCEDURE3_properties_typeProperties_server')]"
+					},
+					"LD_STOREDPROCEDURE3_properties_typeProperties_database": {
+						"value": "[parameters('LD_STOREDPROCEDURE3_properties_typeProperties_database')]"
+					},
+					"LD_STOREDPROCEDURE3_properties_typeProperties_userName": {
+						"value": "[parameters('LD_STOREDPROCEDURE3_properties_typeProperties_userName')]"
+					},
+					"LS_SQL_MIGRATION_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_MIGRATION_properties_typeProperties_server')]"
+					},
+					"LS_SQL_MIGRATION_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_MIGRATION_properties_typeProperties_database')]"
+					},
+					"LS_SQL_MIGRATION_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_MIGRATION_properties_typeProperties_userName')]"
+					},
+					"LS_STOREDPROCEDURE2_properties_typeProperties_server": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_server')]"
+					},
+					"LS_STOREDPROCEDURE2_properties_typeProperties_database": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_database')]"
+					},
+					"LS_STOREDPROCEDURE2_properties_typeProperties_userName": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_userName')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_server')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_database')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName')]"
+					},
+					"LS_SqlServerTable_properties_typeProperties_server": {
+						"value": "[parameters('LS_SqlServerTable_properties_typeProperties_server')]"
+					},
+					"LS_SqlServerTable_properties_typeProperties_database": {
+						"value": "[parameters('LS_SqlServerTable_properties_typeProperties_database')]"
+					},
+					"LS_SqlServerTable_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SqlServerTable_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adfdevdumyproject_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"SqlServer1_password": {
+						"value": "[parameters('SqlServer1_password')]"
+					},
+					"SqlServer1_properties_typeProperties_server": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_server')]"
+					},
+					"SqlServer1_properties_typeProperties_database": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_database')]"
+					},
+					"SqlServer1_properties_typeProperties_userName": {
+						"value": "[parameters('SqlServer1_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevdumyproject_ArmTemplate_0')]"
+			]
+		}
+	]
+}
