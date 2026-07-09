@@ -27,6 +27,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LD_STOREDPROCEDURE3'"
 		},
+		"LS_ADLS_BLOBJSON_EVENT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_ADLS_BLOBJSON_EVENT'"
+		},
+		"LS_ADLS_BLOB_EVENT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_BLOB_EVENT'"
+		},
 		"LS_CSVFILE_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_CSVFILE'"
@@ -83,14 +91,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'SqlServer1'"
 		},
-		"LS_ADLS_BLOB_EVENT_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_BLOB_EVENT'"
-		},
-		"LS_ADLS_BLOBJSON_EVENT_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_ADLS_BLOBJSON_EVENT'"
-		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
@@ -114,6 +114,10 @@
 		"LD_STOREDPROCEDURE3_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "khatipoonam"
+		},
+		"LS_ADLS_BLOB_EVENT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
 		},
 		"LS_CSVFILE_properties_typeProperties_url": {
 			"type": "string",
@@ -203,10 +207,6 @@
 			"type": "string",
 			"defaultValue": "khatipoonam"
 		},
-		"LS_ADLS_BLOB_EVENT_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
-		},
 		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/6583ba25-d8c0-4874-945b-9da668ad9d24/resourceGroups/rg_dev_dumyproject/providers/Microsoft.Storage/storageAccounts/adlsdevdumyproject001"
@@ -250,6 +250,12 @@
 					"AzureDataLakeStorage3_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
 					},
+					"LS_ADLS_BLOBJSON_EVENT_connectionString": {
+						"value": "[parameters('LS_ADLS_BLOBJSON_EVENT_connectionString')]"
+					},
+					"LS_ADLS_BLOB_EVENT_accountKey": {
+						"value": "[parameters('LS_ADLS_BLOB_EVENT_accountKey')]"
+					},
 					"LS_CSVFILE_accountKey": {
 						"value": "[parameters('LS_CSVFILE_accountKey')]"
 					},
@@ -277,23 +283,11 @@
 					"LS_TEXTOUTPUT_BLOB_connectionString": {
 						"value": "[parameters('LS_TEXTOUTPUT_BLOB_connectionString')]"
 					},
-					"LS_ADLS_BLOB_EVENT_accountKey": {
-						"value": "[parameters('LS_ADLS_BLOB_EVENT_accountKey')]"
-					},
-					"LS_ADLS_BLOBJSON_EVENT_connectionString": {
-						"value": "[parameters('LS_ADLS_BLOBJSON_EVENT_connectionString')]"
-					},
 					"LD_STOREDPROCEDURE3_password": {
 						"value": "[parameters('LD_STOREDPROCEDURE3_password')]"
 					},
 					"LS_SQL_MIGRATION_password": {
 						"value": "[parameters('LS_SQL_MIGRATION_password')]"
-					},
-					"LS_STOREDPROCEDURE2_password": {
-						"value": "[parameters('LS_STOREDPROCEDURE2_password')]"
-					},
-					"LS_STOREDPROCEDURE_SQL_password": {
-						"value": "[parameters('LS_STOREDPROCEDURE_SQL_password')]"
 					},
 					"AzureDataLakeStorage1_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
@@ -303,6 +297,9 @@
 					},
 					"AzureDataLakeStorage3_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_BLOB_EVENT_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_BLOB_EVENT_properties_typeProperties_url')]"
 					},
 					"LS_CSVFILE_properties_typeProperties_url": {
 						"value": "[parameters('LS_CSVFILE_properties_typeProperties_url')]"
@@ -325,9 +322,6 @@
 					"LS_TEXTFILE_properties_typeProperties_url": {
 						"value": "[parameters('LS_TEXTFILE_properties_typeProperties_url')]"
 					},
-					"LS_ADLS_BLOB_EVENT_properties_typeProperties_url": {
-						"value": "[parameters('LS_ADLS_BLOB_EVENT_properties_typeProperties_url')]"
-					},
 					"LD_STOREDPROCEDURE3_properties_typeProperties_server": {
 						"value": "[parameters('LD_STOREDPROCEDURE3_properties_typeProperties_server')]"
 					},
@@ -345,24 +339,6 @@
 					},
 					"LS_SQL_MIGRATION_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQL_MIGRATION_properties_typeProperties_userName')]"
-					},
-					"LS_STOREDPROCEDURE2_properties_typeProperties_server": {
-						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_server')]"
-					},
-					"LS_STOREDPROCEDURE2_properties_typeProperties_database": {
-						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_database')]"
-					},
-					"LS_STOREDPROCEDURE2_properties_typeProperties_userName": {
-						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_userName')]"
-					},
-					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_server": {
-						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_server')]"
-					},
-					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_database": {
-						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_database')]"
-					},
-					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName": {
-						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName')]"
 					}
 				}
 			},
@@ -382,11 +358,35 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_STOREDPROCEDURE2_password": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_password')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_password": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_password')]"
+					},
 					"LS_SqlServerTable_password": {
 						"value": "[parameters('LS_SqlServerTable_password')]"
 					},
 					"SqlServer1_password": {
 						"value": "[parameters('SqlServer1_password')]"
+					},
+					"LS_STOREDPROCEDURE2_properties_typeProperties_server": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_server')]"
+					},
+					"LS_STOREDPROCEDURE2_properties_typeProperties_database": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_database')]"
+					},
+					"LS_STOREDPROCEDURE2_properties_typeProperties_userName": {
+						"value": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_userName')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_server')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_database')]"
+					},
+					"LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName')]"
 					},
 					"LS_SqlServerTable_properties_typeProperties_server": {
 						"value": "[parameters('LS_SqlServerTable_properties_typeProperties_server')]"

@@ -23,6 +23,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
 		},
+		"LS_ADLS_BLOBJSON_EVENT_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_ADLS_BLOBJSON_EVENT'"
+		},
+		"LS_ADLS_BLOB_EVENT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_BLOB_EVENT'"
+		},
 		"LS_CSVFILE_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_CSVFILE'"
@@ -59,14 +67,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_TEXTOUTPUT_BLOB'"
 		},
-		"LS_ADLS_BLOB_EVENT_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_BLOB_EVENT'"
-		},
-		"LS_ADLS_BLOBJSON_EVENT_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_ADLS_BLOBJSON_EVENT'"
-		},
 		"LD_STOREDPROCEDURE3_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LD_STOREDPROCEDURE3'"
@@ -74,14 +74,6 @@
 		"LS_SQL_MIGRATION_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_MIGRATION'"
-		},
-		"LS_STOREDPROCEDURE2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_STOREDPROCEDURE2'"
-		},
-		"LS_STOREDPROCEDURE_SQL_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_STOREDPROCEDURE_SQL'"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
 			"type": "string",
@@ -92,6 +84,10 @@
 			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_BLOB_EVENT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
 		},
@@ -123,10 +119,6 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
 		},
-		"LS_ADLS_BLOB_EVENT_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://adlsdevdumyproject001.dfs.core.windows.net/"
-		},
 		"LD_STOREDPROCEDURE3_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
@@ -148,30 +140,6 @@
 			"defaultValue": "Visionboardmigration"
 		},
 		"LS_SQL_MIGRATION_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "khatipoonam"
-		},
-		"LS_STOREDPROCEDURE2_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
-		},
-		"LS_STOREDPROCEDURE2_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "Visionboardmigration"
-		},
-		"LS_STOREDPROCEDURE2_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "khatipoonam"
-		},
-		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "DESKTOP-96QU1C2\\SQLEXPRESS"
-		},
-		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "Visionboardmigration"
-		},
-		"LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "khatipoonam"
 		}
@@ -239,6 +207,36 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ADLS_BLOBJSON_EVENT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('LS_ADLS_BLOBJSON_EVENT_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ADLS_BLOB_EVENT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_ADLS_BLOB_EVENT_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ADLS_BLOB_EVENT_accountKey')]"
 					}
 				}
 			},
@@ -400,34 +398,61 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LS_ADLS_BLOB_EVENT')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/DS_ADLS_BLOBJSON_EVENT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_ADLS_BLOBJSON_EVENT",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AzureBlobFS",
+				"type": "Json",
 				"typeProperties": {
-					"url": "[parameters('LS_ADLS_BLOB_EVENT_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('LS_ADLS_BLOB_EVENT_accountKey')]"
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "jsonoutput"
 					}
-				}
+				},
+				"schema": {}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_ADLS_BLOBJSON_EVENT')]"
+			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/LS_ADLS_BLOBJSON_EVENT')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/DS_ADLS_BLOB_EVENT')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_ADLS_BLOB_EVENT",
+					"type": "LinkedServiceReference"
+				},
 				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "DelimitedText",
 				"typeProperties": {
-					"connectionString": "[parameters('LS_ADLS_BLOBJSON_EVENT_connectionString')]"
-				}
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "input"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": false,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"type": "String"
+					},
+					{
+						"type": "String"
+					}
+				]
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/LS_ADLS_BLOB_EVENT')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/LD_STOREDPROCEDURE3')]",
@@ -474,62 +499,6 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('LS_SQL_MIGRATION_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_STOREDPROCEDURE2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_server')]",
-					"database": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('LS_STOREDPROCEDURE2_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LS_STOREDPROCEDURE2_password')]"
-					}
-				},
-				"connectVia": {
-					"referenceName": "integrationRuntime1",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/integrationRuntime1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_STOREDPROCEDURE_SQL')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"server": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_server')]",
-					"database": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_database')]",
-					"encrypt": "optional",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('LS_STOREDPROCEDURE_SQL_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LS_STOREDPROCEDURE_SQL_password')]"
 					}
 				},
 				"connectVia": {
