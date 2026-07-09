@@ -1,0 +1,21 @@
+{
+	"name": "LD_STOREDPROCEDURE3",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-96QU1C2\\SQLEXPRESS",
+			"database": "Visionboardmigration",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "khatipoonam",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzY2U0MDNlYy00M2UxLTQ1OGMtYWQ2NS0wOWZhY2Q3MTE3ZGMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
