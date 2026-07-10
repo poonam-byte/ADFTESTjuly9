@@ -1,0 +1,26 @@
+{
+	"name": "DS_Binary1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_DIFF_FOLDER",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sourcefile": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().sourcefile",
+					"type": "Expression"
+				},
+				"fileSystem": "input"
+			}
+		}
+	}
+}

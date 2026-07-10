@@ -1,0 +1,33 @@
+{
+	"name": "DS_COPYTXT_SINK_Binary3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_COPYTXT_SINK_Binary3",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TargetFolder": {
+				"type": "string"
+			},
+			"TargetFileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().TargetFileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().TargetFolder",
+					"type": "Expression"
+				},
+				"container": "textoutput"
+			}
+		}
+	}
+}

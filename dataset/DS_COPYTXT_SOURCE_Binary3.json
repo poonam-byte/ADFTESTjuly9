@@ -1,0 +1,26 @@
+{
+	"name": "DS_COPYTXT_SOURCE_Binary3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_COPYTXT_SOURCE_Binary3",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sourcefile": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().sourcefile",
+					"type": "Expression"
+				},
+				"fileSystem": "input"
+			}
+		}
+	}
+}
