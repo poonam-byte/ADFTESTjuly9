@@ -16,6 +16,17 @@
 				"userProperties": []
 			}
 		],
+		"parameters": {
+			"TableSchema": {
+				"type": "string"
+			},
+			"TableName": {
+				"type": "string"
+			},
+			"WatermarkColumn": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
