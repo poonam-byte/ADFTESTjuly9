@@ -15,6 +15,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": {
+							"value": "SELECT TableSchema, TableName, WatermarkColumn, LastLoadValue FROM dbo.ADF_Watermark_Table;",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_SQLSERVER_TBLLKUP",
+						"type": "DatasetReference"
+					},
 					"firstRowOnly": false
 				}
 			},
@@ -31,9 +44,13 @@
 				],
 				"userProperties": [],
 				"typeProperties": {
+					"items": {
+						"value": "@activity('LKUP_SQLTABLE_WATERMRK_DW').output.value",
+						"type": "Expression"
+					},
 					"activities": [
 						{
-							"name": "Execute Pipeline1",
+							"name": "EXEC_SQL_INCREMENTAL_LOAD",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"policy": {
@@ -45,7 +62,25 @@
 									"referenceName": "PL_CHILDPIPELINE_IL",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"TableSchema": {
+										"value": "@item().TableSchema",
+										"type": "Expression"
+									},
+									"TableName": {
+										"value": "@item().TableName",
+										"type": "Expression"
+									},
+									"WatermarkColumn": {
+										"value": "@item().WatermarkColumn",
+										"type": "Expression"
+									},
+									"LastLoadValue": {
+										"value": "@item().LastLoadValue",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]

@@ -1,0 +1,12 @@
+{
+	"name": "DS_SQLSERVER_TBLLKUP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQLSERVER_TBLLKUP",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
