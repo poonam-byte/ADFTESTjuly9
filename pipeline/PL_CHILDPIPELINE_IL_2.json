@@ -1,0 +1,11 @@
+{
+	"name": "PL_CHILDPIPELINE_IL_2",
+	"properties": {
+		"parameters": {
+			"TableSchema": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
