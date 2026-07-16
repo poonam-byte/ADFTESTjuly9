@@ -1,6 +1,28 @@
 {
 	"name": "PL_CHILDPIPELINE_SP_2",
 	"properties": {
+		"activities": [
+			{
+				"name": "SP-UPDT-WTRMRK",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[UpdateWatermark]"
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_ONprem_SqlServer2",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
 		"parameters": {
 			"TableSchema": {
 				"type": "string"
