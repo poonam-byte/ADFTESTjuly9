@@ -62,9 +62,6 @@
 			},
 			"WatermarkColumn": {
 				"type": "string"
-			},
-			"LastLoadValue": {
-				"type": "string"
 			}
 		},
 		"annotations": []
