@@ -37,6 +37,13 @@
 								"type": "Expression"
 							},
 							"type": "String"
+						},
+						"LastLoadValue": {
+							"value": {
+								"value": "@pipeline().parameters.LastLoadValue",
+								"type": "Expression"
+							},
+							"type": "String"
 						}
 					}
 				},
