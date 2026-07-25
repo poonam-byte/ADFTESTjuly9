@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "If Condition1",
+				"name": "IF_NEW_RECORD_EXISTS",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
