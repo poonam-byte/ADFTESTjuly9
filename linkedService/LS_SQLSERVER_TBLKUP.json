@@ -1,0 +1,17 @@
+{
+	"name": "LS_SQLSERVER_TBLKUP",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost\\SQLEXPRESS",
+			"database": "VBGlobal",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "khatipoonam",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDU1QzQ4Rjk1LUVFQTUtNDczMS1CMjNBLTcyNTg3QzhCQUQ4MV80YjIyYTAxYy1mYTZlLTRhYWMtYWYxNi1mNGYxMjYzZDA0YTYiDQp9"
+		}
+	}
+}
