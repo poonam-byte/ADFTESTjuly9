@@ -106,6 +106,10 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
+								"pipeline": {
+									"referenceName": "PL_CHILDPIPELINE_SP_3",
+									"type": "PipelineReference"
+								},
 								"waitOnCompletion": true
 							}
 						}
